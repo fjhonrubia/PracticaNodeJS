@@ -157,7 +157,7 @@
 						"venta": {
 		                    "title":"venta",
 		                    "required":false,
-		                    "default":"true",
+		                    "default":"",
 		                    "type":"string",
 		                    "description":"Indica si se trata de un anuncio de venta o de compra",
 		                    "location": "query"
