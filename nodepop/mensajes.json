@@ -1,0 +1,88 @@
+{
+	"mensajes": [
+		{
+			"clave": "ANUNCIOS_LIST_ERROR",
+			"codigo": 500,
+			"es": "Error listando Anuncios.",
+			"en": "Listing Commercials Error."
+		},
+		{
+			"clave": "IMAGE_GET_ERROR",
+			"codigo": 500,
+			"es": "Error en la lectura de la imagen.",
+			"en": "Error loading image."
+		},
+        {
+     		"clave": "USER_NOT_FOUND",
+			"codigo": 404,
+			"es": "Usuario no encontrado.",
+			"en": "User not found."
+        },
+		{
+			"clave": "VENTA_PARAMETER_NOT_VALID",
+			"codigo": 400,
+			"es": "Parámetro VENTA no válido. Debe ser TRUE o FALSE.",
+			"en": "VENTA parameter not valid. Must be TRUE or FALSE."
+        },
+		{
+			"clave": "PRECIO_PARAMETER_NOT_VALID",
+			"codigo": 400,
+			"es": "Parámetro VENTA no válido. Uso: <Número>-<Número> ó <Número>- ó -<Número>.",
+			"en": "PRECIO parameter not valid. Usage: <Number>-<Number> or <Number>- or -<Number>."
+        },
+		{
+			"clave": "ERROR_SEARCHING_USER",
+			"codigo": 500,
+			"es": "Error en la búsqueda del usuario.",
+			"en": "Error searching User."
+        },
+		{
+			"clave": "FAILED_AUTH_TOKEN",
+			"codigo": 401,
+			"es": "Fallo de autenticación del token.",
+			"en": "User not found"
+        },
+		{
+			"clave": "NO_TOKEN_PROVIDED",
+			"codigo": 403,
+			"es": "No se ha proporcionado token.",
+			"en": "No token provided."
+        },
+		{
+			"clave": "ERROR_SAVING_TOKEN",
+			"codigo": 403,
+			"es": "Error guardando token.",
+			"en": "Error saving token."
+        },
+		{
+			"clave": "ERROR_SAVING_USER",
+			"codigo": 403,
+			"es": "Error guardando usuario.",
+			"en": "Error saving user."
+        },
+		{
+			"clave": "TAGS_LIST_ERROR",
+			"codigo": 500,
+			"es": "Error listando Tags.",
+			"en": "Listing Tags Error."
+        },
+		{
+			"clave": "MAIL_LENGHT_TOO_SMALL",
+			"codigo": 400,
+			"es": "Mail demasiado corto.",
+			"en": "Mail too small."
+        },
+		{
+			"clave": "BAD_EMAIL",
+			"codigo": 400,
+			"es": "Mail incorrecto.",
+			"en": "Wrong mail."
+        },
+		{
+			"clave": "MAIL_EXISTS",
+			"codigo": 400,
+			"es": "El mail ya existe.",
+			"en": "Mail exists."
+		}
+	]
+}

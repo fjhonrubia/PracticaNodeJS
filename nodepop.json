@@ -1,0 +1,277 @@
+{
+	"name": "nodepop",
+	"description": "Nodepop API",
+	"protocol": "rest",
+	"basePath": "http://localhost:3001",
+	"publicPath": "/apiv1",
+	"resources" : {
+		"Usuarios": {
+			"methods": {
+				"registrarUsuario": {
+					"name": "registrarUsuario",
+					"description": "Almacena un usuario en la base de datos dando su Nombre, Mail y Password.",
+					"httpMethod": "POST",
+					"path": "/usuarios/{idiom}/registrarUsuario",
+				    "parameters": {
+				        "idiom": {
+				            "title":"idiom",
+				            "required": true,
+							"default": "en",
+				            "type":"string",
+							"enum": ["es","en"],
+				            "description":"Parámetro que indica el idioma en el que se retornan los mensajes de error",
+				            "location": "path"
+				        },
+		                "nombre": {
+		                    "title":"nombre",
+		                    "required":true,
+		                    "default":"",
+		                    "type":"string",
+		                    "description":"Nombre del usuario",
+		                    "location": "query"
+		                },
+		                "mail": {
+		                    "title":"mail",
+		                    "required":true,
+		                    "default":"",
+		                    "type":"string",
+		                    "description":"Mail del usuario",
+		                    "location": "query"
+		                },
+						"password": {
+		                    "title":"password",
+		                    "required":true,
+		                    "default":"",
+		                    "type":"string",
+		                    "description":"Password del usuario",
+		                    "location": "query"
+		                }
+				    }
+				},
+				"autenticacion": {
+					"name": "autenticacion",
+					"description": "Autentifica un usuario dado su mail y su password",
+					"httpMethod": "POST",
+					"path": "//{idiom}/autenticacion",
+				    "parameters": {
+				        "idiom": {
+				            "title":"idiom",
+				            "required": true,
+							"default": "en",
+				            "type":"string",
+							"enum": ["es","en"],
+				            "description":"Parámetro que indica el idioma en el que se retornan los mensajes de error",
+				            "location": "path"
+				        },
+		                "mail": {
+		                    "title":"mail",
+		                    "required":true,
+		                    "default":"",
+		                    "type":"string",
+		                    "description":"Mail del usuario",
+		                    "location": "query"
+		                },
+						"password": {
+		                    "title":"password",
+		                    "required":true,
+		                    "default":"",
+		                    "type":"string",
+		                    "description":"Password del usuario",
+		                    "location": "query"
+		                }
+				    }
+				}
+			}
+	    },
+		"PushTokens": {
+			"methods": {
+				"registrarToken": {
+					"name": "registrarToken",
+					"description": "Registra el token pasado como parámetro, así como el usuario si existiese y el sistema (iOS ó Android)",
+					"httpMethod": "PUT",
+					"path": "/tokens/{idiom}/registrarToken",
+					"parameters": {
+				        "idiom": {
+				            "title":"idiom",
+				            "required": true,
+							"default": "en",
+				            "type":"string",
+							"enum": ["es","en"],
+				            "description":"Parámetro que indica el idioma en el que se retornan los mensajes de error",
+				            "location": "path"
+				        },
+						"token": {
+		                    "title":"token",
+		                    "required":true,
+		                    "default":"",
+		                    "type":"string",
+		                    "description":"Token a almacenar",
+		                    "location": "query"
+		                },
+						"usuario": {
+		                    "title":"usuario",
+		                    "required":false,
+		                    "default":"",
+		                    "type":"string",
+		                    "description":"Usuario asociado al token",
+		                    "location": "query"
+		                },
+						"plataforma": {
+		                    "title":"plataforma",
+		                    "required":true,
+		                    "default":"",
+		                    "type":"string",
+							"enum": ["ios","android"],
+		                    "description":"Plataforma del token",
+		                    "location": "query"
+		                }
+					}
+				}
+			}
+		},
+		"Anuncios": {
+			"methods": {
+				"listaAnuncios": {
+					"name": "listaAnuncios",
+					"description": "Lista los anuncios almacenados con los criterios especificados",
+					"httpMethod": "GET",
+					"path": "/anuncios/{idiom}/listaAnuncios",
+					"parameters": {
+				        "idiom": {
+				            "title":"idiom",
+				            "required": true,
+							"default": "en",
+				            "type":"string",
+							"enum": ["es","en"],
+				            "description":"Parámetro que indica el idioma en el que se retornan los mensajes de error",
+				            "location": "path"
+				        },
+						"tag": {
+		                    "title":"tag",
+		                    "required":false,
+		                    "default":"",
+		                    "type":"string",
+		                    "description":"Tag de los anuncios a filtrar",
+		                    "location": "query"
+		                },
+						"venta": {
+		                    "title":"venta",
+		                    "required":false,
+		                    "default":"true",
+		                    "type":"string",
+		                    "description":"Indica si se trata de un anuncio de venta o de compra",
+		                    "location": "query"
+		                },
+						"nombre": {
+		                    "title":"nombre",
+		                    "required":false,
+		                    "default":"",
+		                    "type":"string",
+		                    "description":"Comienzo del nombre del artículo que se busca",
+		                    "location": "query"
+		                },
+						"precio": {
+		                    "title":"precio",
+		                    "required":false,
+		                    "default":"",
+		                    "type":"string",
+		                    "description":"Rango de precios del artículo que se busca",
+		                    "location": "query"
+		                },
+						"start": {
+		                    "title":"start",
+		                    "required":false,
+		                    "default":"0",
+		                    "type":"integer",
+		                    "description":"Registro de comienzo en la paginación",
+		                    "location": "query"
+		                },
+						"limit": {
+		                    "title":"limit",
+		                    "required":false,
+		                    "default":"0",
+		                    "type":"integer",
+		                    "description":"Límite de registros a devolver en la paginación",
+		                    "location": "query"
+		                },
+						"sort": {
+		                    "title":"sort",
+		                    "required":false,
+		                    "default":"0",
+		                    "type":"string",
+		                    "description":"Campo por el que se ordenan los resultados",
+		                    "location": "query"
+		                },
+						"token": {
+		                    "title":"token",
+		                    "required":true,
+		                    "default":"",
+		                    "type":"string",
+		                    "description":"Token para autenticar al usuario",
+		                    "location": "query"
+		                }
+					}
+				},
+				"listaTags": {
+					"name": "listaTags",
+					"description": "Lista de todos los Tags de los anuncios",
+					"httpMethod": "GET",
+					"path": "/anuncios/{idiom}/listaTags",
+					"parameters": {
+				        "idiom": {
+				            "title":"idiom",
+				            "required": true,
+							"default": "en",
+				            "type":"string",
+							"enum": ["es","en"],
+				            "description":"Parámetro que indica el idioma en el que se retornan los mensajes de error",
+				            "location": "path"
+				        },
+                      "token": {
+                        "title":"token",
+                        "required":true,
+                        "default":"",
+                        "type":"string",
+                        "description":"Token para autenticar al usuario",
+                        "location": "query"
+                      }
+					}
+				},
+
+				"imagen": {
+					"name": "imagen",
+					"description": "Recupera una determinada imagen",
+					"httpMethod": "GET",
+					"path": "/anuncios/{idiom}/images/{imagen}",
+					"parameters": {
+				        "idiom": {
+				            "title":"idiom",
+				            "required": true,
+							"default": "en",
+				            "type":"string",
+							"enum": ["es","en"],
+				            "description":"Parámetro que indica el idioma en el que se retornan los mensajes de error",
+				            "location": "path"
+				        },
+						"imagen": {
+							"title":"imagen",
+							"required": true,
+							"default": "",
+							"type":"string",
+							"description":"Imagen que se tiene que recuperar",
+							"location": "path"
+						},
+                        "token": {
+                          "title":"token",
+                          "required":true,
+                          "default":"",
+                          "type":"string",
+                          "description":"Token para autenticar al usuario",
+                          "location": "query"
+                        }
+					}
+				}
+			}
+		}
+	}
+}
