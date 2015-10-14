@@ -16,7 +16,7 @@ var procesaQS = require('../../lib/apiv1/procesaQueryString.js');
 var jwtAuth = require('../../lib/apiv1/jwtAuth');
 router.use('/:idiom(es|en)', jwtAuth());
 
-router.get('/:idiom(es|en)/images/:imagen', (req, res)=> {
+router.get('/:idiom(es|en)/images/:imagen', function(req, res) {
 
   // Recuperación del parámetro de idioma
   var idioma = req.params.idiom;
@@ -29,7 +29,7 @@ router.get('/:idiom(es|en)/images/:imagen', (req, res)=> {
     },
   };
 
-  res.sendFile(req.params.imagen, options, (err)=> {
+  res.sendFile(req.params.imagen, options, function(err) {
     console.log('Anuncios.js - Imagen enviada con éxito');
     if (err) {
       errores('IMAGE_GET_ERROR', idioma, err, res);
@@ -43,11 +43,11 @@ router.get('/:idiom(es|en)/listaTags', function(req, res) {
   var idioma = req.params.idiom;
 
   // Ejecución de la consulta
-  Anuncio.listaTags().then((data)=> {
+  Anuncio.listaTags().then(function(data) {
     console.log('Anuncios.js - Tags listados con éxito');
     res.json({tags: data});
 
-  }).catch((err)=> {
+  }).catch(function(err) {
     errores('TAGS_LIST_ERROR', idioma, err, res);
   });
 

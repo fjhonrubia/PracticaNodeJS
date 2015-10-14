@@ -52,7 +52,7 @@ A continuación se indicará las distintas operaciones y resultados que pueden r
 
 Para poder registrar un nuevo usuario, se debe ejecutar la siguiente llamada de tipo POST como en el siguiente ejemplo:
 
-*http://localhost:3001/apiv1/usuarios/es/registrarUsuario?nombre=usr1&mail=mail@usr1.com&pass=passUsr1*
+*http://localhost:3001/apiv1/usuarios/es/registrarUsuario?nombre=usr1&mail=mail@usr1.com&password=passUsr1*
 
 En esta llamada existen los siguientes parámetros:
 

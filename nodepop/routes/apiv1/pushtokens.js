@@ -9,7 +9,7 @@ var PushToken = mongoose.model('PushToken');
 // Módulo de gestión de errores
 var errores = require('../../lib/apiv1/errores.js');
 
-router.put('/:idiom(es|en)/registrarToken', (req, res)=> {
+router.put('/:idiom(es|en)/registrarToken', function(req, res) {
 
   // Recuperación de los parámetros de registro del token
   console.log('PushTokens.js - Token: ', req.query.token);
@@ -34,7 +34,7 @@ router.put('/:idiom(es|en)/registrarToken', (req, res)=> {
   }
 
   // Se almacena en la base de datos
-  token.save((err,data)=> {
+  token.save(function(err,data) {
     if (err) {
       errores('ERROR_SAVING_TOKEN', idioma, err, res);
     }

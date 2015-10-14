@@ -8,7 +8,7 @@ var errores = require('../../lib/apiv1/errores.js');
 
 module.exports = function() {
 
-  return (req, res, next)=> {
+  return function(req, res, next) {
 
     var token = req.body.token ||
         req.query.token ||
@@ -20,7 +20,7 @@ module.exports = function() {
     if (token) {
 
       // Comprobación del secret
-      jwt.verify(token, configJWT.secret, (err, decoded)=> {
+      jwt.verify(token, configJWT.secret, function(err, decoded) {
         if (err) {
 
           errores('FAILED_AUTH_TOKEN', idioma, err, res);

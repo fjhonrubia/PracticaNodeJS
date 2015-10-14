@@ -8,7 +8,7 @@ function enviaError(msg, idiom, err, res) {
 
   var mensajesError;
 
-  fs.readFile(__dirname + '/../../mensajes.json', (err,data) => {
+  fs.readFile(__dirname + '/../../mensajes.json', function(err,data) {
     if (err) {
       console.error('errores.js - Error en la lectura del fichero: ', err);
       if (idiom === 'es') {
@@ -60,7 +60,7 @@ function enviaError(msg, idiom, err, res) {
       }
     }
 
-    for (let idx in mensajesError.mensajes) {
+    for (var idx in mensajesError.mensajes) {
       if (mensajesError.mensajes[idx].clave.toString() === msg) {
         if (idiom === 'es') {
           return res.status(mensajesError.mensajes[idx].codigo).json({

@@ -83,6 +83,12 @@
 			"codigo": 400,
 			"es": "El mail ya existe.",
 			"en": "Mail exists."
-		}
+		},
+        {
+          "clave": "PASS_NULL",
+          "codigo": 400,
+          "es": "Debe especificarse un password.",
+          "en": "Password must be specified."
+        }
 	]
 }

@@ -2,7 +2,7 @@
 
 function compruebaMail(mail) {
 
-  return new Promise((resolve, reject)=> {
+  return new Promise(function(resolve, reject) {
     // Si la longitud del string es inferior a 6, mail inválido
 
     if (mail.length < 6) {

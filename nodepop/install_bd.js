@@ -36,7 +36,7 @@ function runInstallScript() {
     async.series([
         initAnuncios,
         initUsuarios
-    ], (err) => {
+    ], function(err) {
         if (err) {
         console.error('Hubo un error: ', err);
         return process.exit(1);
@@ -52,11 +52,11 @@ function initAnuncios(cb) {
     var Anuncio = require('./models/apiv1/Anuncio');
 
     // elimino todos
-    Anuncio.remove({}, ()=> {
+    Anuncio.remove({}, function() {
 
         var anunciosObj;
         // aqui cargaríamos el json de anuncios (readFile, JSON.parse, iterar con Anuncio.save...)
-        fs.readFile('./anuncios.json', (err,data) => {
+        fs.readFile('./anuncios.json', function(err,data) {
             if (err) {
                 console.error('Error en la lectura del fichero: ', err);
                 return process.exit(1);
@@ -77,12 +77,12 @@ function initAnuncios(cb) {
             console.log('anunciosObj: ', anunciosObj);
 
 			//Se itera añadiendo un registro en cada caso
-			anunciosObj.anuncios.forEach((item)=>{
+			anunciosObj.anuncios.forEach(function(item) {
                 //Se crea un nuevo anuncio 
                 let anuncio = new Anuncio(item);
 
                 //se guarda el objeto en base de datos
-                anuncio.save((err)=>{
+                anuncio.save(function(err){
                     if (err) {
                         console.error('Error en el guardado del objeto: ', err);
                         return cb(err);
@@ -102,7 +102,7 @@ function initUsuarios(cb) {
     var Usuario = require('./models/apiv1/Usuario');
 
     // elimino todos
-    Usuario.remove({}, ()=> {
+    Usuario.remove({}, function() {
         // aqui cargaríamos al menos un usuario (Usuario.save)
                 let usuario = new Usuario({
                     'nombre': 'usr1',
@@ -112,7 +112,7 @@ function initUsuarios(cb) {
 
             console.log('Usuario: ', usuario);
 
-            usuario.save((err, result)=>{
+            usuario.save(function(err, result){
                 if (err) {
                 console.error('Error en la creación del usuario: ', err);
                 return cb(err);

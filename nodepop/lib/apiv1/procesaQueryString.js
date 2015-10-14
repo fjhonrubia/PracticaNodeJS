@@ -1,7 +1,7 @@
 'use strict';
 
 function procesaQueryString(tag, venta, nombre, precio) {
-  return new Promise((resolve, reject)=> {
+  return new Promise(function(resolve, reject) {
 
     // Se declara un objeto vacío
     var criterio = new Object({});
@@ -34,7 +34,7 @@ function procesaQueryString(tag, venta, nombre, precio) {
     // también se comprueba si son números los parámetros
     if (precio) {
       console.log('procesaQueryString - El parámetro precio es: ', precio);
-      let arr = precio.split('-');
+      var arr = precio.split('-');
       if ((arr[0] !== '') && (arr[1] !== '')) {
         if ((!isNaN(arr[0])) && (!isNaN(arr[1]))) {
           criterio.precio = { $gte: arr[0], $lte: arr[1]};

@@ -24,7 +24,7 @@ router.post('/:idiom(es|en)/autenticacion', function(req, res) {
   console.log('Autenticacion.js - Mail: ',req.query.mail);
   console.log('Autenticacion.js - Pass: ',passEncriptado);
 
-  Usuario.autenticacion(req.query.mail, passEncriptado).then((usr)=> {
+  Usuario.autenticacion(req.query.mail, passEncriptado).then(function(usr) {
 
     // Creación del token
     var token = jwt.sign(usr, config.jwt.secret, {
@@ -35,7 +35,7 @@ router.post('/:idiom(es|en)/autenticacion', function(req, res) {
     console.log('Autenticacion.js - El token enviado es: ',token);
     res.json({ ok: true, token: token });
 
-  }).catch((err)=> {
+  }).catch(function(err) {
     errores('USER_NOT_FOUND', idioma, err, res);
   });
 });
